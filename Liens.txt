@@ -1,0 +1,19 @@
+
+https://stackoverflow.com/questions/44495756/form-search-with-spring-thymeleaf-mvc
+
+Mécanisme 
+
+List<WebProduct> webProducts = webProductRepository.findByWord("%"+word+"%");
+  |
+List webProducts = webProductRepository.findByWord("%"+word+"%");
+
+
+@Query(value="select * from WebProduct wp where wp.name like :word or wp.description like :word", nativeQuery = true)
+	List<WebProduct> findByWord(@Param("word") String word);
+  |
+@Query(value="select * from WebProduct wp where wp.name like :word or wp.description like :word", nativeQuery = true) 
+List findByWord(@Param("word") String word);
+
+
+
+
